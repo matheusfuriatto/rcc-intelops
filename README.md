@@ -67,7 +67,7 @@ O projeto foi construído utilizando tecnologias nativas da web para garantir m�
 
 1. Faça o clone deste repositório:
 ```bash
-   git clone [https://github.com/seu-usuario/rcc-intelops.git](https://github.com/seu-usuario/rcc-intelops.git)# 🦅 RCC IntelOps — Central de Instrução Inteligente
+   git clone [https://github.com/matheusfuriatto/rcc-intelops.git](https://github.com/matheusfuriatto/rcc-intelops.git)# 🦅 RCC IntelOps — Central de Instrução Inteligente
 
 > Sistema Web com Assistente Virtual Integrado (`supervisorbot`) desenvolvido para consulta ágil de diretrizes doutrinárias, regulamentos e segurança com base na Apostila de Auditoria da Polícia RCC.
 
@@ -136,4 +136,4 @@ O projeto foi construído utilizando tecnologias nativas da web para garantir m�
 
 1. Faça o clone deste repositório:
 ```bash
-   git clone [https://github.com/seu-usuario/rcc-intelops.git](https://github.com/seu-usuario/rcc-intelops.git)
+   git clone [https://github.com/seu-usuario/rcc-intelops.git](https://github.com/matheusfuriatto/rcc-intelops.git)
