@@ -295,6 +295,7 @@ body {
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid var(--color-border-clean);
+    flex-shrink: 0;
 }
 
 .intelbot-header-title {
@@ -364,6 +365,7 @@ body {
     color: var(--color-text-secondary);
     border-bottom: 1px solid var(--color-border-clean);
     text-align: center;
+    flex-shrink: 0;
 }
 
 .intelbot-messages-area {
@@ -376,7 +378,7 @@ body {
     background-color: rgba(6, 9, 19, 0.4);
 }
 
-/* Balões de Mensagem */
+
 .bot-msg {
     max-width: 85%;
     padding: 0.85rem 1.1rem;
@@ -411,11 +413,13 @@ body {
 .intelbot-input-area {
     display: flex;
     border-top: 1px solid var(--color-border-clean);
-    background-color: rgba(11, 17, 32, 0.95);
+    background-color: #0b1120;
+    flex-shrink: 0;
 }
 
 .intelbot-input-area input {
     flex: 1;
+    min-width: 0;
     background: transparent;
     border: none;
     padding: 1.1rem 1.25rem;
@@ -435,6 +439,7 @@ body {
     font-size: 0.85rem;
     cursor: pointer;
     transition: all 0.2s;
+    flex-shrink: 0;
 }
 
 .btn-bot-send:hover { background-color: var(--color-neon-cyan); color: var(--color-bg-deep); }
@@ -469,7 +474,7 @@ body {
     pointer-events: none;
 }
 
-/* RODAPÉ ACCENT */
+
 .app-footer {
     text-align: center;
     padding: 2.5rem 2rem;
@@ -481,7 +486,7 @@ body {
     backdrop-filter: blur(4px);
 }
 
-/* KEYFRAMES ANIMATIONS ENGINE */
+
 @keyframes pulse-green {
     0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.5); }
     70% { box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
@@ -498,13 +503,33 @@ body {
     to { opacity: 1; }
 }
 
-/* RESPONSIVIDADE E ADAPTAÇÃO */
+
 @media (max-width: 480px) {
     .intelbot-chat-window {
-        width: calc(100vw - 2rem);
-        height: 440px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;     
+        height: 100vh; 
+        max-height: 100vh;
+        border-radius: 0;
+        margin-bottom: 0;
+        z-index: 99999;
     }
-    .intelbot-wrapper { bottom: 1.5rem; right: 1.5rem; }
+    .intelbot-wrapper { 
+        bottom: 0; 
+        right: 0; 
+    }
+    .intelbot-input-area {
+
+        padding-bottom: env(safe-area-inset-bottom, 12px); 
+        background-color: #121b33;
+    }
+    .btn-bot-send {
+        padding: 0 1.8rem;
+        font-size: 0.95rem;
+    }
     .hero-title { font-size: 2rem; }
     .header-inner { justify-content: center; text-align: center; }
 }
+
