@@ -3,10 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IntelOps - Departamento de Pesquisa | RCC Inteligência</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>IntelOps - Departamento de Pesquisa | RCC Supervisores</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -16,13 +13,13 @@
             <div class="brand-container">
                 <div class="app-logo-icon"></div>
                 <div>
-                    <span class="badge-department">AUDITORIA FISCAL — INTELIGÊNCIA DE DADOS</span>
-                    <h1 class="app-title">RCC IntelOps <span class="app-version">v5.5.0</span></h1>
+                    <span class="badge-department">AUDITORIA FISCAL - SUPERVISORES</span>
+                    <h1 class="app-title">RCC IntelOps <span class="app-version">v4.0.0</span></h1>
                 </div>
             </div>
             <div class="system-status">
                 <span class="status-dot pulsing"></span>
-                <span class="status-text">Base Corporativa Homologada</span>
+                <span class="status-text">Módulo de Supervisão Homologado</span>
             </div>
         </div>
     </header>
@@ -31,53 +28,70 @@
         
         <section id="step-selection" class="view-section active">
             <header class="section-hero">
-                <h2 class="hero-title">Capacitação Avançada & <span class="text-gradient">Inteligência Operacional</span></h2>
-                <p class="hero-subtitle">Interface tática integrada de consulta rápida e triagem de dúvidas com inteligência artificial para a Polícia RCC.</p>
+                <h2 class="hero-title">Capacitação Avançada de <span class="text-gradient">Supervisores (SUP)</span></h2>
+                <p class="hero-subtitle">Desde 2009 capacitando soldados, cabos, subtenentes e executivos da Polícia RCC com aulas autênticas e de excelência.</p>
             </header>
 
             <div class="selection-grid">
-                
                 <article class="module-card">
-                    <div class="card-image card-sup">
-                        <span class="card-tag tag-blue">Módulo I</span>
-                    </div>
+                    <div class="card-icon"></div>
                     <div class="card-body">
-                        <h3>Supervisão de Soldados</h3>
-                        <p>Diretrizes essenciais de registro em fórum, regras de nicks, ativação de contas no RCC System e guias para suporte mobile.</p>
+                        <span class="card-tag tag-blue">Corpo de Supervisão</span>
+                        <h3>Auditoria de Supervisores</h3>
+                        <p>Módulo analítico para inspecionar e validar os conhecimentos aplicados nas diretrizes de Supervisão, Segurança e Promoção.</p>
                         <div class="card-actions">
-                            <button type="button" class="btn btn-action w-100" onclick="document.getElementById('btn-toggle-intelbot').click();">Consultar via Bot</button>
+                            <button type="button" id="btn-start-quiz" class="btn-action w-100">Iniciar Pipeline de Avaliação</button>
                         </div>
                     </div>
                 </article>
-
-                <article class="module-card">
-                    <div class="card-image card-seg">
-                        <span class="card-tag tag-red">Módulo II</span>
-                    </div>
-                    <div class="card-body">
-                        <h3>Segurança Operacional</h3>
-                        <p>Identificação de fakes por caractere visual, protocolos de invasão por oficiais superiores e gerenciamento da Sala de Controle.</p>
-                        <div class="card-actions">
-                            <button type="button" class="btn btn-action w-100" onclick="document.getElementById('btn-toggle-intelbot').click();">Consultar via Bot</button>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="module-card">
-                    <div class="card-image card-pro">
-                        <span class="card-tag tag-gold">Módulo III</span>
-                    </div>
-                    <div class="card-body">
-                        <h3>Diretrizes de Promoção</h3>
-                        <p>Critérios técnicos de avaliação, as 6 punições disciplinares vigentes, quebra por nepotismo e a autonomia dos Subtenentes.</p>
-                        <div class="card-actions">
-                            <button type="button" class="btn btn-action w-100" onclick="document.getElementById('btn-toggle-intelbot').click();">Consultar via Bot</button>
-                        </div>
-                    </div>
-                </article>
-
             </div>
         </section>
+
+        <section id="step-quiz" class="view-section">
+            <header class="section-header-compact">
+                <h2 class="section-title-sm">Formulário de Auditoria Fiscal - SUP</h2>
+                <span id="quiz-page-indicator">Questão 1 de 2</span>
+            </header>
+
+            <div class="document-viewer">
+                <aside class="doc-sidebar">
+                    <h3 class="sidebar-title">Painel de Navegação</h3>
+                    <nav class="doc-nav" id="quiz-navigation-map"></nav>
+                </aside>
+
+                <div class="doc-content-area">
+                    <form id="quiz-core-form" class="pdf-page-container"></form>
+                </div>
+            </div>
+        </section>
+
+        <section id="step-dispatch" class="view-section">
+            <header class="section-header-compact">
+                <h2 class="section-title-sm">Despacho de Relatório Técnico - SUP</h2>
+            </header>
+
+            <form id="form-dispatch-pipeline" class="form-grid">
+                <div class="input-wrapper">
+                    <label for="input-nick-supervisor">Nick do Supervisor Avaliado</label>
+                    <input type="text" id="input-nick-supervisor" required placeholder="Ex: Subtenente_Gomes">
+                </div>
+                
+                <div class="input-wrapper">
+                    <label for="input-nick-avaliador">Nick do Avaliador Fiscal</label>
+                    <input type="text" id="input-nick-avaliador" required placeholder="Ex: Matheus_F">
+                </div>
+
+                <div class="input-wrapper col-span-2">
+                    <label for="input-feedback">Avaliação de Postura e Conhecimento Técnico do Militar</label>
+                    <textarea id="input-feedback" rows="4" required placeholder="Escreva um parecer técnico sobre a conduta, segurança e critérios de promoção demonstrados pelo supervisor..."></textarea>
+                </div>
+
+                <div class="col-span-2 action-bar-footer">
+                    <button type="submit" class="btn btn-success w-100">Disparar Relatório para a Diretoria de SUP</button>
+                </div>
+            </form>
+        </section>
+
     </main>
 
     <div class="intelbot-wrapper">
@@ -87,37 +101,46 @@
                     <div class="bot-avatar"></div>
                     <div>
                         <h4>supervisorbot</h4>
-                        <span class="bot-status">Online • Assistente Tático</span>
+                        <span class="bot-status">Online — QAP Total</span>
                     </div>
                 </div>
-                <button type="button" id="btn-close-intelbot" class="btn-bot-close" title="Minimizar">&times;</button>
+                <div class="intelbot-actions">
+                    <button type="button" id="btn-clear-intelbot" class="btn-bot-clear" title="Limpar Histórico">🗑️</button>
+                    <button type="button" id="btn-close-intelbot" class="btn-bot-close" title="Minimizar">&times;</button>
+                </div>
             </header>
-            
-            <div class="intelbot-subtitle-bar">Consulte os manuais de Supervisão, Segurança ou Promoção na hora.</div>
+
+            <div class="intelbot-subtitle-bar">
+                Pega a visão! Dúvidas sobre Supervisão, Segurança ou Promoção?
+            </div>
             
             <div id="intelbot-messages" class="intelbot-messages-area">
-                <div class="bot-msg System">
-                    <span><strong>supervisorbot:</strong> Saudações, combatente! Sou o assistente inteligente do Departamento de Pesquisa. Mande sua dúvida sobre nossos termos ou códigos da <strong>Polícia RCC</strong> que eu analiso a nossa base de conhecimento na hora! Selva! ⚔️</span>
                 </div>
+
+            <div id="intelbot-suggestions" class="intelbot-suggestions-bar">
+                <button type="button" class="suggest-btn" data-query="Fui hackeado o que eu faço?">🔒 Fui Hackeado</button>
+                <button type="button" class="suggest-btn" data-query="Quais as regras do dialogo dpp e dpr?">📈 Diálogos DPP/DPR</button>
+                <button type="button" class="suggest-btn" data-query="Quais as 6 punições administrativas?">⚠️ As 6 Punições</button>
+                <button type="button" class="suggest-btn" data-query="Como funciona a regra do print?">📸 Regra do Print</button>
+                <button type="button" class="suggest-btn" data-query="O que diz o CPM sobre Nepotismo?">👥 Nepotismo</button>
             </div>
             
             <form id="intelbot-form" class="intelbot-input-area">
-                <input type="text" id="intelbot-input" placeholder="Digite termos como fakes, punição, fórum..." required autocomplete="off">
-                <button type="submit" class="btn-bot-send">Enviar</button>
+                <input type="text" id="intelbot-input" placeholder="Manda o bizu aqui, combatente..." required autocomplete="off">
+                <button type="submit" class="btn-bot-send">></button>
             </form>
         </div>
 
         <button type="button" id="btn-toggle-intelbot" class="intelbot-trigger-btn" title="Chamar supervisorbot">
-            <span class="trigger-icon">💬</span>
             <span class="pulse-ring"></span>
         </button>
     </div>
 
     <footer class="app-footer">
-        <p>Diretório de Inteligência de Dados &copy; 2009 - 2026 Departamento de Pesquisa da Auditoria Fiscal. Todos os direitos reservados.</p>
+        <p>Diretório de Inteligência de Dados &copy; 2009 - 2026 Inteligência de Dados da Auditoria Fiscal. Todos os direitos reservados.</p>
     </footer>
 
-    <script src="./chat.js"></script>
     <script src="./app.js"></script>
+    <script src="./chat.js"></script>
 </body>
 </html>

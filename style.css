@@ -175,19 +175,6 @@ body {
     border-color: rgba(0, 242, 254, 0.4);
 }
 
-.card-image {
-    height: 150px;
-    background: linear-gradient(180deg, rgba(18, 27, 51, 0.1) 0%, rgba(11, 17, 32, 0.95) 100%), var(--img-logo-supervisores) no-repeat center;
-    background-size: contain;
-    padding: 1.25rem;
-    display: flex;
-    align-items: flex-start;
-}
-
-.card-sup { filter: hue-rotate(180deg) brightness(1.1); }
-.card-seg { filter: drop-shadow(0px 0px 15px rgba(244, 63, 94, 0.3)); }
-.card-pro { filter: grayscale(0.1) saturate(1.2); }
-
 .card-tag {
     font-size: 0.65rem;
     font-weight: 700;
@@ -195,11 +182,12 @@ body {
     padding: 0.25rem 0.6rem;
     border-radius: 6px;
     letter-spacing: 0.5px;
+    display: inline-block;
+    margin-bottom: 1rem;
+    width: max-content;
 }
 
 .tag-blue { color: var(--color-neon-cyan); background: rgba(0, 242, 254, 0.12); border: 1px solid rgba(0, 242, 254, 0.25); }
-.tag-red { color: var(--color-crimson); background: rgba(244, 63, 94, 0.12); border: 1px solid rgba(244, 63, 94, 0.25); }
-.tag-gold { color: #fbbf24; background: rgba(251, 191, 36, 0.12); border: 1px solid rgba(251, 191, 36, 0.25); }
 
 .card-body {
     padding: 1.75rem;
@@ -300,7 +288,7 @@ body {
     box-shadow: 0 0 8px rgba(0, 242, 254, 0.3);
 }
 
-.intelbot-header-title h4 { font-size: 0.95rem; font-weight: 700; }
+.intelbot-header-title h4 { font-size: 0.95rem; font-weight: 700; color: #ffffff; }
 .bot-status { font-size: 0.7rem; color: var(--color-emerald); display: block; font-weight: 500; }
 
 .intelbot-actions { display: flex; align-items: center; gap: 0.75rem; }
@@ -319,6 +307,37 @@ body {
 .bot-msg.System { background-color: var(--color-bg-element); border-left: 3px solid var(--color-neon-cyan); color: var(--color-text-primary); align-self: flex-start; border-top-left-radius: 0; }
 .bot-msg.User { background: linear-gradient(135deg, var(--color-border-clean), rgba(30, 45, 90, 0.6)); color: #ffffff; align-self: flex-end; border-right: 3px solid var(--color-neon-blue); border-top-right-radius: 0; }
 .bot-msg.typing span { color: var(--color-text-secondary); font-style: italic; animation: pulse-text 0.8s infinite alternate; }
+
+/* 🚀 SEÇÃO EXCLUSIVA: Carrossel Horizontal de Sugestões */
+.intelbot-suggestions-bar {
+    display: flex;
+    gap: 8px;
+    padding: 8px 12px;
+    background-color: #0b1120;
+    border-top: 1px solid var(--color-border-clean);
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: none; /* Firefox */
+}
+.intelbot-suggestions-bar::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
+}
+.suggest-btn {
+    background-color: var(--color-bg-element);
+    border: 1px solid var(--color-border-clean);
+    color: var(--color-text-secondary);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.78rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.suggest-btn:hover {
+    background-color: var(--color-neon-cyan);
+    color: var(--color-bg-deep);
+    border-color: var(--color-neon-cyan);
+}
 
 .intelbot-input-area { 
     display: flex; 
@@ -344,9 +363,9 @@ body {
     border: none; 
     border-left: 1px solid var(--color-border-clean); 
     color: var(--color-neon-cyan); 
-    padding: 0 1rem; 
+    padding: 0 1.25rem; 
     font-weight: 700; 
-    font-size: 0.85rem; 
+    font-size: 1.05rem; 
     cursor: pointer; 
     white-space: nowrap;
     flex-shrink: 0;
@@ -365,6 +384,7 @@ body {
 @keyframes ring-glow { 0% { transform: scale(1); opacity: 0.5; } 100% { transform: scale(1.35); opacity: 0; } }
 @keyframes pulse-text { from { opacity: 0.4; } to { opacity: 1; } }
 
+
 @media (max-width: 480px) {
     .intelbot-chat-window {
         position: fixed;
@@ -374,10 +394,22 @@ body {
         height: 100vh;
         border-radius: 0;
         margin-bottom: 0;
+        z-index: 10000;
     }
     .intelbot-wrapper {
         bottom: 10px;
         right: 10px;
+    }
+    .intelbot-messages-area {
+        height: calc(100vh - 180px) !important; /* Compensa cabeçalhos e inputs */
+    }
+    .intelbot-input-area {
+        padding-bottom: env(safe-area-inset-bottom, 15px); /* Suporte para barras do iOS/Android */
+        background-color: #121b33;
+    }
+    .suggest-btn {
+        padding: 8px 14px; /* Área de clique maior para telas touch */
+        font-size: 0.82rem;
     }
     .hero-title { font-size: 1.8rem; }
     .app-main { padding: 2rem 1rem; }
