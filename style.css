@@ -15,9 +15,8 @@
     
     --font-stack: 'Inter', system-ui, -apple-system, sans-serif;
     
-    /* Assets Separados Corretamente */
-    --img-logo-supervisores: url('assets/images/YFNt7wq.png'); /* Imagem Padrão dos Módulos */
-    --img-logo-professores: url('assets/images/professores.png'); /* Exclusiva do Chatbot */
+    --img-logo-supervisores: url('assets/images/YFNt7wq.png');
+    --img-logo-professores: url('assets/images/professores.png');
     --img-background-page: url('assets/images/wgsERct.png');
 }
 
@@ -160,7 +159,7 @@ body {
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-/* CARDS EM GRID - VOLTARAM A USAR IMAGEM ORIGINAL YFNt7wq.png */
+/* CARDS EM GRID */
 .selection-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -254,11 +253,11 @@ body {
     box-shadow: 0 0 15px rgba(0, 242, 254, 0.4);
 }
 
-/* CHAT WIDGET INTERATIVO (DESIGN PREMIUM GLASSMORPHISM) */
+/* CHAT WIDGET */
 .intelbot-wrapper {
     position: fixed;
-    bottom: 2.5rem;
-    right: 2.5rem;
+    bottom: 20px;
+    right: 20px;
     z-index: 999;
     display: flex;
     flex-direction: column;
@@ -276,7 +275,7 @@ body {
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    margin-bottom: 1.25rem;
+    margin-bottom: 15px;
     opacity: 0;
     transform: translateY(25px) scale(0.95);
     pointer-events: none;
@@ -299,13 +298,8 @@ body {
     border-bottom: 1px solid var(--color-border-clean);
 }
 
-.intelbot-header-title {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-}
+.intelbot-header-title { display: flex; align-items: center; gap: 0.75rem; }
 
-/* Avatar Interno do Chat usa professores.png */
 .bot-avatar {
     width: 34px;
     height: 34px;
@@ -316,197 +310,60 @@ body {
     box-shadow: 0 0 8px rgba(0, 242, 254, 0.3);
 }
 
-.intelbot-header-title h4 {
-    font-size: 0.95rem;
-    font-weight: 700;
-}
+.intelbot-header-title h4 { font-size: 0.95rem; font-weight: 700; }
+.bot-status { font-size: 0.7rem; color: var(--color-emerald); display: block; font-weight: 500; }
 
-.bot-status {
-    font-size: 0.7rem;
-    color: var(--color-emerald);
-    display: block;
-    font-weight: 500;
-}
+.intelbot-actions { display: flex; align-items: center; gap: 0.75rem; }
 
-.intelbot-actions {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-}
-
-/* Botão Limpar Chat */
-.btn-bot-clear {
-    background: transparent;
-    border: none;
-    color: var(--color-text-secondary);
-    font-size: 1.1rem;
-    cursor: pointer;
-    transition: color 0.2s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 4px;
-}
+.btn-bot-clear { background: transparent; border: none; color: var(--color-text-secondary); font-size: 1.1rem; cursor: pointer; padding: 4px; }
 .btn-bot-clear:hover { color: #fbbf24; }
 
-.btn-bot-close {
-    background: transparent;
-    border: none;
-    color: var(--color-text-secondary);
-    font-size: 1.6rem;
-    cursor: pointer;
-    line-height: 1;
-}
+.btn-bot-close { background: transparent; border: none; color: var(--color-text-secondary); font-size: 1.6rem; cursor: pointer; line-height: 1; }
 .btn-bot-close:hover { color: var(--color-crimson); }
 
-.intelbot-subtitle-bar {
-    background: rgba(0, 242, 254, 0.04);
-    font-size: 0.75rem;
-    padding: 0.5rem 1.25rem;
-    color: var(--color-text-secondary);
-    border-bottom: 1px solid var(--color-border-clean);
-    text-align: center;
-}
+.intelbot-subtitle-bar { background: rgba(0, 242, 254, 0.04); font-size: 0.75rem; padding: 0.5rem 1.25rem; color: var(--color-text-secondary); border-bottom: 1px solid var(--color-border-clean); text-align: center; }
 
-.intelbot-messages-area {
-    flex: 1;
-    padding: 1.25rem;
-    overflow-y: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    background-color: rgba(6, 9, 19, 0.4);
-}
+.intelbot-messages-area { flex: 1; padding: 1.25rem; overflow-y: auto; display: flex; flex-direction: column; gap: 1rem; background-color: rgba(6, 9, 19, 0.4); }
 
-/* Balões de Mensagem */
-.bot-msg {
-    max-width: 85%;
-    padding: 0.85rem 1.1rem;
-    border-radius: 12px;
-    font-size: 0.88rem;
-    line-height: 1.5;
-    word-wrap: break-word;
-}
+.bot-msg { max-width: 85%; padding: 0.85rem 1.1rem; border-radius: 12px; font-size: 0.88rem; line-height: 1.5; word-wrap: break-word; }
+.bot-msg.System { background-color: var(--color-bg-element); border-left: 3px solid var(--color-neon-cyan); color: var(--color-text-primary); align-self: flex-start; border-top-left-radius: 0; }
+.bot-msg.User { background: linear-gradient(135deg, var(--color-border-clean), rgba(30, 45, 90, 0.6)); color: #ffffff; align-self: flex-end; border-right: 3px solid var(--color-neon-blue); border-top-right-radius: 0; }
+.bot-msg.typing span { color: var(--color-text-secondary); font-style: italic; animation: pulse-text 0.8s infinite alternate; }
 
-.bot-msg.System {
-    background-color: var(--color-bg-element);
-    border-left: 3px solid var(--color-neon-cyan);
-    color: var(--color-text-primary);
-    align-self: flex-start;
-    border-top-left-radius: 0;
-}
-
-.bot-msg.User {
-    background: linear-gradient(135deg, var(--color-border-clean), rgba(30, 45, 90, 0.6));
-    color: #ffffff;
-    align-self: flex-end;
-    border-right: 3px solid var(--color-neon-blue);
-    border-top-right-radius: 0;
-}
-
-.bot-msg.typing span {
-    color: var(--color-text-secondary);
-    font-style: italic;
-    animation: pulse-text 0.8s infinite alternate;
-}
-
-.intelbot-input-area {
-    display: flex;
-    border-top: 1px solid var(--color-border-clean);
-    background-color: rgba(11, 17, 32, 0.95);
-}
-
-.intelbot-input-area input {
-    flex: 1;
-    background: transparent;
-    border: none;
-    padding: 1.1rem 1.25rem;
-    color: var(--color-text-primary);
-    font-size: 0.9rem;
-}
-
+.intelbot-input-area { display: flex; border-top: 1px solid var(--color-border-clean); background-color: rgba(11, 17, 32, 0.95); }
+.intelbot-input-area input { flex: 1; background: transparent; border: none; padding: 1.1rem 1.25rem; color: var(--color-text-primary); font-size: 0.9rem; }
 .intelbot-input-area input:focus { outline: none; }
-
-.btn-bot-send {
-    background-color: rgba(18, 27, 51, 0.5);
-    border: none;
-    border-left: 1px solid var(--color-border-clean);
-    color: var(--color-neon-cyan);
-    padding: 0 1.5rem;
-    font-weight: 700;
-    font-size: 0.85rem;
-    cursor: pointer;
-    transition: all 0.2s;
-}
-
+.btn-bot-send { background-color: rgba(18, 27, 51, 0.5); border: none; border-left: 1px solid var(--color-border-clean); color: var(--color-neon-cyan); padding: 0 1.5rem; font-weight: 700; font-size: 0.85rem; cursor: pointer; transition: all 0.2s; }
 .btn-bot-send:hover { background-color: var(--color-neon-cyan); color: var(--color-bg-deep); }
 
-/* BOTÃO GATILHO REDONDO (Usa estritamente a imagem professores.png na bolinha do chat) */
-.intelbot-trigger-btn {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background: #0b1120 var(--img-logo-professores) no-repeat center;
-    background-size: 75% 75%;
-    border: 2px solid var(--color-neon-cyan);
-    box-shadow: 0 8px 24px rgba(0, 242, 254, 0.45);
-    cursor: pointer;
-    position: relative;
-    transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
+.intelbot-trigger-btn { width: 60px; height: 60px; border-radius: 50%; background: #0b1120 var(--img-logo-professores) no-repeat center; background-size: 75% 75%; border: 2px solid var(--color-neon-cyan); box-shadow: 0 8px 24px rgba(0, 242, 254, 0.45); cursor: pointer; position: relative; transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
 .intelbot-trigger-btn:hover { transform: scale(1.08); }
+.pulse-ring { position: absolute; top: -2px; left: -2px; width: 60px; height: 60px; border-radius: 50%; background: transparent; border: 2px solid var(--color-neon-cyan); opacity: 0.5; animation: ring-glow 2.5s infinite ease-out; pointer-events: none; }
 
-.pulse-ring {
-    position: absolute;
-    top: -2px;
-    left: -2px;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background: transparent;
-    border: 2px solid var(--color-neon-cyan);
-    opacity: 0.5;
-    animation: ring-glow 2.5s infinite ease-out;
-    pointer-events: none;
-}
+/* RODAPÉ */
+.app-footer { text-align: center; padding: 2.5rem 2rem; margin-top: 5rem; border-top: 1px solid var(--color-border-clean); color: var(--color-text-secondary); font-size: 0.8rem; background: rgba(6, 9, 19, 0.8); backdrop-filter: blur(4px); }
 
-/* RODAPÉ ACCENT */
-.app-footer {
-    text-align: center;
-    padding: 2.5rem 2rem;
-    margin-top: 5rem;
-    border-top: 1px solid var(--color-border-clean);
-    color: var(--color-text-secondary);
-    font-size: 0.8rem;
-    background: rgba(6, 9, 19, 0.8);
-    backdrop-filter: blur(4px);
-}
+/* ANIMATIONS */
+@keyframes pulse-green { 0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.5); } 70% { box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); } 100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); } }
+@keyframes ring-glow { 0% { transform: scale(1); opacity: 0.5; } 100% { transform: scale(1.35); opacity: 0; } }
+@keyframes pulse-text { from { opacity: 0.4; } to { opacity: 1; } }
 
-/* KEYFRAMES ANIMATIONS ENGINE */
-@keyframes pulse-green {
-    0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.5); }
-    70% { box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
-}
-
-@keyframes ring-glow {
-    0% { transform: scale(1); opacity: 0.5; }
-    100% { transform: scale(1.35); opacity: 0; }
-}
-
-@keyframes pulse-text {
-    from { opacity: 0.4; }
-    to { opacity: 1; }
-}
-
-/* RESPONSIVIDADE E ADAPTAÇÃO */
+/* RESPONSIVIDADE E ADAPTAÇÃO MOBILE */
 @media (max-width: 480px) {
     .intelbot-chat-window {
-        width: calc(100vw - 2rem);
-        height: 440px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        border-radius: 0;
+        margin-bottom: 0;
     }
-    .intelbot-wrapper { bottom: 1.5rem; right: 1.5rem; }
-    .hero-title { font-size: 2rem; }
-    .header-inner { justify-content: center; text-align: center; }
+    .intelbot-wrapper {
+        bottom: 10px;
+        right: 10px;
+    }
+    .hero-title { font-size: 1.8rem; }
+    .app-main { padding: 2rem 1rem; }
+    .selection-grid { grid-template-columns: 1fr; }
 }
